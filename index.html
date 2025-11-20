@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DisRUpt Hackathon 2025 | Rishihood University</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap');
+
+        :root {
+            --neon-lime: #dfff4f;
+            --neon-cyan: #06b6d4;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: #020204;
+            color: #e0e0e0;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        /* Custom Colors based on Screenshot */
+        .text-lime-neon {
+            color: var(--neon-lime);
+        }
+        
+        .border-lime-neon {
+            border-color: var(--neon-lime);
+        }
+
+        .bg-lime-neon {
+            background-color: var(--neon-lime);
+        }
+
+        .neon-text {
+            text-shadow: 0 0 10px rgba(223, 255, 79, 0.5), 0 0 20px rgba(223, 255, 79, 0.3);
+        }
+
+        .neon-border {
+            box-shadow: 0 0 10px rgba(223, 255, 79, 0.2);
+            border: 1px solid rgba(223, 255, 79, 0.4);
+        }
+
+        /* Background Wave Pattern (Blue Lines) */
+        .bg-waves {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-color: #000000;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 800'%3E%3Cdefs%3E%3ClinearGradient id='grad1' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' style='stop-color:%2306b6d4;stop-opacity:0.1' /%3E%3Cstop offset='100%25' style='stop-color:%230891b2;stop-opacity:0.3' /%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='none' stroke='url(%23grad1)' stroke-width='2' d='M0,200 C300,100 600,300 900,200 C1200,100 1440,250 1440,250' opacity='0.5'/%3E%3Cpath fill='none' stroke='url(%23grad1)' stroke-width='2' d='M0,250 C320,150 620,350 920,250 C1220,150 1440,300 1440,300' opacity='0.4'/%3E%3Cpath fill='none' stroke='url(%23grad1)' stroke-width='2' d='M0,300 C340,200 640,400 940,300 C1240,200 1440,350 1440,350' opacity='0.3'/%3E%3Cpath fill='none' stroke='url(%23grad1)' stroke-width='2' d='M0,350 C360,250 660,450 960,350 C1260,250 1440,400 1440,400' opacity='0.2'/%3E%3Cpath fill='none' stroke='url(%23grad1)' stroke-width='2' d='M0,400 C380,300 680,500 980,400 C1280,300 1440,450 1440,450' opacity='0.1'/%3E%3C/svg%3E");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .btn-primary {
+            background: var(--neon-lime);
+            color: #000;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: #ecff8f; /* lighter lime */
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(223, 255, 79, 0.6);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Background Wave Pattern -->
+    <div class="bg-waves"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-black/80 backdrop-blur-md border-b border-cyan-900/30">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-white tracking-wider">
+                Dis<span class="text-lime-neon">RU</span>pt <span class="text-xs align-top border border-lime-neon px-1 rounded ml-1 text-lime-neon">RU</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="hover:text-lime-neon transition text-gray-300">About</a>
+                <a href="#leaders" class="hover:text-lime-neon transition text-gray-300">Judges</a>
+                <a href="#prizes" class="hover:text-lime-neon transition text-gray-300">Prizes</a>
+                <a href="#details" class="hover:text-lime-neon transition text-gray-300">Details</a>
+                <a href="#help" class="hover:text-lime-neon transition text-gray-300">Need Help</a>
+            </div>
+            <a href="https://forms.gle/jb61bcJMgfoXTJXr8" target="_blank" class="btn-primary px-6 py-2 rounded font-bold uppercase tracking-widest text-sm">
+                Register
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="min-h-screen flex items-center justify-center relative pt-20">
+        <!-- Overlay gradient to make text pop -->
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#020204] z-0"></div>
+        
+        <div class="container mx-auto px-6 text-center z-10 relative">
+            <p class="text-cyan-500 font-bold tracking-[0.3em] mb-4 fade-in">RISHIHOOD UNIVERSITY</p>
+            
+            <!-- MAIN TITLE MATCHING SCREENSHOT -->
+            <h1 class="text-6xl md:text-8xl lg:text-9xl font-black mb-4 leading-tight fade-in delay-100 text-lime-neon neon-text">
+                DisRUpt Hackathon
+            </h1>
+            
+            <h2 class="text-2xl md:text-4xl font-light text-gray-400 mb-8 fade-in delay-200">
+                2025 <span class="text-cyan-500">EDITION</span>
+            </h2>
+            
+            <p class="text-xl md:text-3xl max-w-3xl mx-auto text-gray-100 mb-10 fade-in delay-200 font-bold">
+                Transforming Ideas into <br>
+                <span class="text-lime-neon">Impactful Disruption.</span>
+            </p>
+
+            <div class="flex flex-col md:flex-row justify-center items-center gap-4 fade-in delay-300">
+                <a href="https://forms.gle/jb61bcJMgfoXTJXr8" target="_blank" class="btn-primary px-10 py-4 rounded text-black font-bold text-lg uppercase tracking-wider w-full md:w-auto">
+                    Let's Disrupt ⚡
+                </a>
+                <a href="#details" class="border border-gray-700 hover:border-lime-neon hover:text-lime-neon px-10 py-4 rounded text-white font-bold text-lg uppercase tracking-wider transition w-full md:w-auto">
+                    Learn More
+                </a>
+            </div>
+
+            <!-- Countdown Timer -->
+            <div class="mt-16 grid grid-cols-4 gap-4 max-w-xl mx-auto text-center fade-in delay-300" id="countdown">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-[#020204]/90">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6"><span class="text-lime-neon">///</span> The Mission</h2>
+                    <p class="text-white text-xl md:text-2xl font-light mb-8 leading-relaxed">
+                        "DisRUpt is where innovators come together to <span class="text-lime-neon font-bold">break boundaries</span> and turn <span class="text-lime-neon font-bold">bold ideas</span> into reality."
+                    </p>
+                    
+                    <div class="space-y-4 border-l-2 border-cyan-800 pl-6">
+                        <p class="text-gray-400">
+                            Whether you are a designer, a coder, a business strategist, or a creative thinker—WE WANT YOU.
+                        </p>
+                        <p class="text-gray-400">
+                            Open to ALL Departments: CSDS, BBA, Psychology, B.Design.
+                        </p>
+                    </div>
+                </div>
+                <div class="relative neon-border p-1 rounded-lg bg-gray-900/50 transform rotate-2 hover:rotate-0 transition duration-500 border-cyan-500/30">
+                    <div class="p-8 text-center">
+                        <i class="fas fa-lightbulb text-6xl text-lime-neon mb-4"></i>
+                        <h3 class="text-3xl font-bold text-white mb-2">Ideate.</h3>
+                        <h3 class="text-3xl font-bold text-cyan-500 mb-2">Build.</h3>
+                        <h3 class="text-3xl font-bold text-lime-neon">Impact.</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOEN Leaders -->
+    <section id="leaders" class="py-20 bg-black relative">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-cyan-500 font-bold tracking-widest mb-2">MENTORSHIP</p>
+            <h2 class="text-4xl font-bold mb-12 text-white">INNOVATE WITH <span class="text-lime-neon">SOEN LEADERS</span></h2>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Leader 1 -->
+                <div class="bg-gray-900/50 p-8 rounded-xl border border-gray-800 hover:border-lime-neon transition hover:-translate-y-2 duration-300">
+                    <div class="w-20 h-20 bg-lime-900/20 rounded-full mx-auto mb-4 flex items-center justify-center text-2xl font-bold text-lime-neon border border-lime-neon/30">
+                        VM
+                    </div>
+                    <h3 class="text-xl font-bold text-white">Vasudev Murthy</h3>
+                    <p class="text-sm text-cyan-400 mt-1">SOEN Leader</p>
+                </div>
+
+                <!-- Leader 2 -->
+                <div class="bg-gray-900/50 p-8 rounded-xl border border-gray-800 hover:border-lime-neon transition hover:-translate-y-2 duration-300">
+                    <div class="w-20 h-20 bg-lime-900/20 rounded-full mx-auto mb-4 flex items-center justify-center text-2xl font-bold text-lime-neon border border-lime-neon/30">
+                        TB
+                    </div>
+                    <h3 class="text-xl font-bold text-white">Trupti Bijwal</h3>
+                    <p class="text-sm text-cyan-400 mt-1">SOEN Leader</p>
+                </div>
+
+                <!-- Leader 3 -->
+                <div class="bg-gray-900/50 p-8 rounded-xl border border-gray-800 hover:border-lime-neon transition hover:-translate-y-2 duration-300">
+                    <div class="w-20 h-20 bg-lime-900/20 rounded-full mx-auto mb-4 flex items-center justify-center text-2xl font-bold text-lime-neon border border-lime-neon/30">
+                        AM
+                    </div>
+                    <h3 class="text-xl font-bold text-white">Apoorva Mittal</h3>
+                    <p class="text-sm text-cyan-400 mt-1">SOEN Leader</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Details Banner -->
+    <section id="prizes" class="py-20 relative overflow-hidden">
+        <!-- Cyan accent background -->
+        <div class="absolute inset-0 bg-cyan-900/5 skew-y-3 transform origin-top-left"></div>
+        
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <h2 class="text-4xl font-bold mb-12">WHAT'S ON THE LINE?</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-900/80 p-8 rounded border border-gray-800 hover:border-lime-neon transition group">
+                    <i class="fas fa-trophy text-5xl text-lime-neon mb-4 group-hover:scale-110 transition transform"></i>
+                    <h3 class="text-2xl font-bold text-white mb-2">Prize Pool</h3>
+                    <p class="text-4xl font-black text-white">₹10,000</p>
+                    <p class="text-gray-500 mt-2">Cash Rewards</p>
+                </div>
+
+                <div class="bg-gray-900/80 p-8 rounded border border-gray-800 hover:border-cyan-500 transition group">
+                    <i class="fas fa-certificate text-5xl text-cyan-500 mb-4 group-hover:scale-110 transition transform"></i>
+                    <h3 class="text-2xl font-bold text-white mb-2">Recognition</h3>
+                    <p class="text-xl text-gray-300">Exclusive Merit Certificates</p>
+                    <p class="text-gray-500 mt-2">For the Winning Teams</p>
+                </div>
+
+                <div class="bg-gray-900/80 p-8 rounded border border-gray-800 hover:border-purple-500 transition group">
+                    <i class="fas fa-network-wired text-5xl text-purple-500 mb-4 group-hover:scale-110 transition transform"></i>
+                    <h3 class="text-2xl font-bold text-white mb-2">Network</h3>
+                    <p class="text-xl text-gray-300">Connect & Chill</p>
+                    <p class="text-gray-500 mt-2">Meet RU's brightest minds</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Logistics -->
+    <section id="details" class="py-20 bg-[#050505]">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="border border-lime-neon/30 bg-gray-900/40 p-10 rounded-xl text-center">
+                <h2 class="text-3xl font-bold mb-8 text-white">MARK THE DATE</h2>
+                
+                <div class="grid grid-cols-2 gap-8 mb-10">
+                    <div>
+                        <p class="text-gray-500 uppercase text-sm tracking-widest">Date</p>
+                        <p class="text-3xl font-bold text-lime-neon">22 NOV</p>
+                    </div>
+                    <div>
+                        <p class="text-gray-500 uppercase text-sm tracking-widest">Duration</p>
+                        <p class="text-3xl font-bold text-lime-neon">8 HOURS</p>
+                    </div>
+                </div>
+
+                <a href="https://forms.gle/jb61bcJMgfoXTJXr8" target="_blank" class="inline-block btn-primary px-12 py-4 rounded text-black font-bold text-xl uppercase shadow-lg shadow-lime-500/20 animate-pulse">
+                    Register Your Team Now
+                </a>
+                <p class="mt-4 text-gray-500 text-sm">Only limited slots available.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Need Help Section -->
+    <section id="help" class="py-20 bg-black border-t border-gray-900">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-8 text-white">NEED <span class="text-lime-neon">HELP?</span></h2>
+            <p class="text-gray-400 mb-8">Reach out to the organizers for any queries.</p>
+            
+            <div class="flex flex-col md:flex-row justify-center gap-6 md:gap-12">
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=sourabh.p25102@csds.rishihood.edu.in" target="_blank" class="group flex items-center justify-center gap-3 p-4 rounded border border-gray-800 hover:border-lime-neon transition bg-gray-900/50">
+                    <i class="fas fa-envelope text-lime-neon group-hover:scale-110 transition"></i>
+                    <span class="text-gray-300 group-hover:text-white transition">sourabh.p25102@csds.rishihood.edu.in</span>
+                </a>
+                
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=poorak.p25055@csds.rishihood.edu.in" target="_blank" class="group flex items-center justify-center gap-3 p-4 rounded border border-gray-800 hover:border-lime-neon transition bg-gray-900/50">
+                    <i class="fas fa-envelope text-lime-neon group-hover:scale-110 transition"></i>
+                    <span class="text-gray-300 group-hover:text-white transition">poorak.p25055@csds.rishihood.edu.in</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Organizer Section -->
+    <section class="py-20 bg-[#020204] border-t border-gray-900 relative overflow-hidden">
+        <!-- Background glow effect -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-lime-neon/5 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-white">THE MINDS BEHIND <span class="text-lime-neon">DisRUpt</span></h2>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Sourabh Pal Card -->
+                <div class="bg-gray-900/40 backdrop-blur-sm p-8 rounded-xl border border-gray-800 hover:border-lime-neon transition duration-300 group hover:-translate-y-1">
+                    <div class="w-24 h-24 mx-auto mb-6 rounded-full border-2 border-lime-neon p-1">
+                        <div class="w-full h-full rounded-full bg-gray-800 flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-800 to-black">
+                            <span class="text-3xl font-bold text-lime-neon">SP</span>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold text-white mb-2">Sourabh Pal</h3>
+                    <p class="text-gray-400 mb-6 text-sm uppercase tracking-widest">Lead Organizer</p>
+                    
+                    <p class="text-gray-300 mb-8 italic">"Driving innovation and breaking the status quo at Rishihood University."</p>
+
+                    <a href="https://www.linkedin.com/in/sourabh-pal-853466328" target="_blank" class="inline-flex items-center gap-2 bg-[#0077b5] hover:bg-[#005e93] text-white px-8 py-3 rounded font-bold transition shadow-lg shadow-blue-900/20">
+                        <i class="fab fa-linkedin text-xl"></i>
+                        Connect on LinkedIn
+                    </a>
+                </div>
+
+                <!-- Poorak Pandey Card -->
+                <div class="bg-gray-900/40 backdrop-blur-sm p-8 rounded-xl border border-gray-800 hover:border-lime-neon transition duration-300 group hover:-translate-y-1">
+                    <div class="w-24 h-24 mx-auto mb-6 rounded-full border-2 border-lime-neon p-1">
+                        <div class="w-full h-full rounded-full bg-gray-800 flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-800 to-black">
+                            <span class="text-3xl font-bold text-lime-neon">PP</span>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold text-white mb-2">Poorak Pandey</h3>
+                    <p class="text-gray-400 mb-6 text-sm uppercase tracking-widest">Lead Organizer</p>
+                    
+                    <p class="text-gray-300 mb-8 italic">"Empowering students to build the future through collaboration."</p>
+
+                    <a href="https://www.linkedin.com/in/poorak-pandey-038a38262/" target="_blank" class="inline-flex items-center gap-2 bg-[#0077b5] hover:bg-[#005e93] text-white px-8 py-3 rounded font-bold transition shadow-lg shadow-blue-900/20">
+                        <i class="fab fa-linkedin text-xl"></i>
+                        Connect on LinkedIn
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-gray-900 text-center bg-black">
+        <p class="text-gray-600 font-bold">Team DisRUpt &copy; 2025</p>
+        <p class="text-gray-700 text-sm">Rishihood University</p>
+    </footer>
+
+    <script>
+        // Countdown Timer Logic
+        const eventDate = new Date('November 22, 2025 09:00:00').getTime();
+
+        const countdown = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+
+            if (distance < 0) {
+                clearInterval(countdown);
+                document.getElementById("countdown").innerHTML = '<div class="col-span-4 text-2xl font-bold text-lime-neon">EVENT STARTED</div>';
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            const timeUnits = [
+                { val: days, label: 'Days' },
+                { val: hours, label: 'Hours' },
+                { val: minutes, label: 'Mins' },
+                { val: seconds, label: 'Secs' }
+            ];
+
+            const html = timeUnits.map(unit => `
+                <div class="bg-gray-900/80 p-2 rounded border border-gray-800">
+                    <div class="text-2xl md:text-3xl font-bold text-white font-mono">${unit.val}</div>
+                    <div class="text-xs text-gray-500 uppercase">${unit.label}</div>
+                </div>
+            `).join('');
+
+            document.getElementById("countdown").innerHTML = html;
+
+        }, 1000);
+    </script>
+</body>
+</html>
